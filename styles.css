@@ -10,15 +10,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: antiquewhite;
+    background: #fff0f0;
 }
 
 .container-player{
     width: 20rem;
     height: 25rem;
     border-radius: 10px;
-    background-color: #7a839a;
-    box-shadow: 4px 4px 5px #012b61;
+    background-color: #d70000;
+    box-shadow: 4px 4px 5px #500000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +27,7 @@ body{
 
 .container-player > h1{
     font-size: 2rem;
-    color: #b9cfe9;
+    color: #ffc0c0;
 }
 
 .container-album{
@@ -42,7 +42,8 @@ body{
     height: 10rem;
     border-radius: 50%;
     margin: 1rem 0 1rem 0;
-    animation: spin 4.5s linear infinite;
+    animation: spin 6s linear infinite;
+    box-shadow: 0 0 30px 4px #ffffff;
 }
 
 .container-player > .controls{
@@ -51,6 +52,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: #500000;
 }
 
 .controls > audio{
@@ -68,7 +70,7 @@ body{
 }
 
 .player_controls > i:hover{
-    color: #17e417;
+    color: #ff5757;
 }
 
 @keyframes spin {
