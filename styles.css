@@ -10,7 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('bgBody.avif');
+    background: antiquewhite;
 }
 
 .container-player{
@@ -42,6 +42,7 @@ body{
     height: 10rem;
     border-radius: 50%;
     margin: 1rem 0 1rem 0;
+    animation: spin 4.5s linear infinite;
 }
 
 .container-player > .controls{
@@ -68,4 +69,13 @@ body{
 
 .player_controls > i:hover{
     color: #17e417;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

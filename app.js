@@ -146,63 +146,68 @@ const playList = [
     },
 ]
 
-let currentSongINdex = 0
+let currentSongIndex = 0;
 
-const audio = document.getElementById('audio')
-const play = document.getElementById('play')
-const pause = document.getElementById('pause')
-const forward = document.getElementById('forward')
-const rewind = document.getElementById('rewind')
-const stop = document.getElementById('stop')
+const audio = document.getElementById('audio');
+const play = document.getElementById('play');
+const pause = document.getElementById('pause');
+const forward = document.getElementById('forward');
+const rewind = document.getElementById('rewind');
+const stop = document.getElementById('stop');
 const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 
+const playerImage = document.querySelector('.player__img');
+const playerArtist = document.querySelector('.player__artist');
+const playerSongTitle = document.querySelector('.player__song');
 
-play.addEventListener('click', () => audio.play())
-
-pause.addEventListener('click', () => audio.pause())
-
-rewind.addEventListener('click', () => audio.currentTime -= 10)
-
-forward.addEventListener('click', () => audio.currentTime += 10)
-
-stop.addEventListener('click', () =>{
-    audio.pause()
-    audio.currentTime = 0
-})
-
-function updateSong(song) {
-    audio.src = song.song
-    document.querySelector('.player__img').src = song.img;
-    document.querySelector('.player__artist').textContent = song.artist;
-    document.querySelector('.player__song').textContent = song.title;
-    audio.load()
-}
-
-// Función para reproducir la canción actual en el índice
-function playCurrentSong() {
-    const currentSong = playList[currentSong];
-    loadSong(currentSong);
+// Función para cargar y reproducir una canción basada en el índice
+function loadAndPlaySong(index) {
+    currentSongIndex = index;
+    const song = playList[currentSongIndex];
+    audio.src = song.song;
+    playerImage.src = song.img;
+    playerArtist.textContent = song.artist;
+    playerSongTitle.textContent = song.title;
     audio.play();
 }
 
-// Cambiar a la siguiente canción
-function playNextSong() {
-    currentSongINdex = (currentSongINdex + 1) % playList.length;
-    playCurrentSong();
+// Reproducir la canción actual
+play.addEventListener('click', () => audio.play());
+
+// Pausar la canción
+pause.addEventListener('click', () => audio.pause());
+
+// Retroceder 10 segundos
+rewind.addEventListener('click', () => audio.currentTime -= 10);
+
+// Avanzar 10 segundos
+forward.addEventListener('click', () => audio.currentTime += 10);
+
+// Detener la canción
+stop.addEventListener('click', () => {
+    audio.pause();
+    audio.currentTime = 0;
+});
+
+// Reproducir la siguiente canción
+function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % playList.length;
+    loadAndPlaySong(currentSongIndex);
 }
 
-// Cambiar a la canción anterior
-function playPreviousSong() {
-    currentSongINdex = (currentSongINdex - 1 + playList.length) % playList.length;
-    playCurrentSong();
+// Reproducir la canción anterior
+function previousSong() {
+    currentSongIndex = (currentSongIndex - 1 + playList.length) % playList.length;
+    loadAndPlaySong(currentSongIndex);
 }
 
-// Reproducir la siguiente canción cuando termine la actual
-audio.addEventListener('ended', playNextSong);
+// Cambiar canciones automáticamente cuando termina la actual
+audio.addEventListener('ended', nextSong);
 
-// Avanzar a la siguiente canción manualmente
-next.addEventListener('click', playNextSong);
+// Botones para cambiar canciones manualmente
+next.addEventListener('click', nextSong);
+previous.addEventListener('click', previousSong);
 
-// Retroceder a la canción anterior manualmente
-previous.addEventListener('click', playPreviousSong);
+// Cargar la primera canción al iniciar
+loadAndPlaySong(currentSongIndex);
