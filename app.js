@@ -51,8 +51,8 @@ const playList = [
     {
         title: 'Birds',
         artist: 'Imagine Dragons',
-        img: '../Audios/Imagine Dragons - Birds (Animated Video).mp3',
-        song: '../Img/Birds.jpeg'
+        img: '../Img/Birds.jpeg',
+        song: '../Audios/Imagine Dragons - Birds (Animated Video).mp3'
     },
     {
         title: 'Bones',
@@ -101,6 +101,12 @@ const playList = [
         artist: 'Ledy Gaga',
         img: '../Img/Americano.jpeg',
         song: '../Audios/Lady Gaga - Americano (Official Audio).mp3'
+    },
+    {
+        title: 'Americano',
+        artist: 'Ledy Gaga, Bruno Mars',
+        img: '../Img/Die With A Smile.jpeg',
+        song: '../Audios/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video).mp3'
     },
     {
         title: 'Sway',
