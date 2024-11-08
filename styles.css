@@ -82,3 +82,34 @@ body{
         transform: rotate(360deg);
     }
 }
+
+.word-search-container {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    gap: 5px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.word-search-container .letter {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #500000;
+    background-color: #ffc0c0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d70000;
+    cursor: pointer;
+}
+
+.letter.selected {
+    background-color: #ffeb3b; /* Color de resaltado para selección */
+}
+
+.letter.found {
+    background-color: #4caf50; /* Color de resaltado para palabras encontradas */
+    color: white;
+}
