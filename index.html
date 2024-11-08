@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="Img/logo.png">
-    <title>Reproductor</title>
-</head>
-<body>
-    <div class="container-player">
-        <h1>Play Music</h1>        
-        <div class="container-album">
-            <img src="Img/Dream On.jpeg" alt="album" class="player__img">
-            <h2 class="player__song">Dream On</h2>
-            <h3 class="player__artist">Aerosmith</h3>
-        </div>    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="Img/logo.png">
+        <title>Reproductor</title>
+    </head>
     
-        <div class="controls">
-            <audio class="player__audio" controls id="audio">
-                <source src="Audios/Aerosmith - Dream On (Audio).mp3" type="audio/mpeg">
-            </audio>
-            <div class="player_controls">
-                <i class='bx bx-skip-previous' id="previous"></i>  
-                <i class='bx bx-rewind' id="rewind"></i>        
-                <i class='bx bx-play' id="play"></i>
-                <i class='bx bx-stop' id="stop"></i> 
-                <i class='bx bx-pause' id="pause"></i>
-                <i class='bx bx-fast-forward' id="forward"></i>
-                <i class='bx bx-skip-next' id="next"></i>   
+    <body>
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded" style="width: 22rem;">
+                <h1 class="card-title">Play Music</h1>
+                <div class="card-body">
+                    <div class="container-album">
+                        <img src="Img/Dream On.jpeg" alt="album" class="card-img-top player__img mb-3">
+                        <h2 class="player__song">Dream On</h2>
+                        <h3 class="player__artist">Aerosmith</h3>
+                    </div>
+                    <audio class="player__audio w-100 my-2" controls id="audio">
+                        <source src="Audios/Aerosmith - Dream On (Audio).mp3" type="audio/mpeg">
+                    </audio>
+                    <!-- Botones de control de reproducción -->
+                    <div class="d-flex justify-content-around">
+                        <button id="previous" class="btn btn-outline-primary"><i class='bx bx-skip-previous'></i></button>
+                        <button id="rewind" class="btn btn-outline-primary"><i class='bx bx-rewind'></i></button>
+                        <button id="play" class="btn btn-primary"><i class='bx bx-play'></i></button>
+                        <button id="pause" class="btn btn-secondary"><i class='bx bx-pause'></i></button>
+                        <button id="stop" class="btn btn-outline-danger"><i class='bx bx-stop'></i></button>
+                        <button id="forward" class="btn btn-outline-primary"><i class='bx bx-fast-forward'></i></button>
+                        <button id="next" class="btn btn-outline-primary"><i class='bx bx-skip-next'></i></button>
+                    </div>
+                </div>
+                <!-- Sopa de letras -->
+                <div id="word-search-container" class="word-search-container mt-3"></div>
             </div>
         </div>
+        <script src="app.js"></script> 
+    </body>
     
-        <!-- Contenedor para la sopa de letras -->
-        <div id="word-search-container" class="word-search-container"></div>
-    </div>
-    
-    <script src="app.js"></script>                    
-</body>
 </html>
