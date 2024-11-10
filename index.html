@@ -10,6 +10,7 @@
     </head>
     
     <body>
+        <div class="reproductor-container">
         <div class="container d-flex justify-content-center align-items-center vh-100">
             <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded" style="width: 22rem;">
                 <h1 class="card-title">Play Music</h1>
@@ -22,8 +23,12 @@
                     <audio class="player__audio w-100 my-2" controls id="audio">
                         <source src="Audios/Aerosmith - Dream On (Audio).mp3" type="audio/mpeg">
                     </audio>
+                    <!-- Mostrar el puntaje -->
+                    <div id="score-container" class="my-3">
+                        <h4>Puntaje: <span id="score">0</span></h4>
+                    </div>
                     <!-- Botones de control de reproducción -->
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around mb-3">
                         <button id="previous" class="btn btn-outline-primary"><i class='bx bx-skip-previous'></i></button>
                         <button id="rewind" class="btn btn-outline-primary"><i class='bx bx-rewind'></i></button>
                         <button id="play" class="btn btn-primary"><i class='bx bx-play'></i></button>
@@ -32,11 +37,30 @@
                         <button id="forward" class="btn btn-outline-primary"><i class='bx bx-fast-forward'></i></button>
                         <button id="next" class="btn btn-outline-primary"><i class='bx bx-skip-next'></i></button>
                     </div>
+                    <!-- Botón para jugar -->
+                    <button id="play-game" class="btn btn-success">Jugar</button>
                 </div>
                 <!-- Sopa de letras -->
-                <div id="word-search-container" class="word-search-container mt-3"></div>
+                <div id="word-search-container" class="word-search-container mt-3 d-none"></div>
             </div>
         </div>
+        
+        <!-- Tabla de historial de partidas -->
+        <div class="container mt-5">
+            <h2>Historial de Partidas</h2>
+            <table class="table table-striped" id="game-history">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Canción</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se agregarán dinámicamente aquí -->
+                </tbody>
+            </table>
+        </div>                       
         <script src="app.js"></script> 
     </body>
     
